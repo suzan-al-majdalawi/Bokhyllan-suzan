@@ -1,0 +1,143 @@
+/* Samma stil som i app/src/index.css.
+   Klasserna book-list, book-card, badge och book-detail används i komponenterna. */
+
+:root {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  color: #1f2328;
+  background: #f6f4ef;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  padding: 1rem 2rem;
+  background: #2f3e46;
+  color: #fff;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+header p {
+  margin: 0 0 0 auto;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: #fff;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+}
+
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #ddd8cc;
+  border-radius: 8px;
+}
+
+.book-card h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.book-card p {
+  margin: 0;
+  color: #57606a;
+}
+
+.book-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.book-detail h2,
+.book-detail p {
+  margin: 0;
+}
+
+.badge {
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  background: #52796f;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+form {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 360px;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #ddd8cc;
+  border-radius: 8px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+label:has(input[type='checkbox']) {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input {
+  padding: 0.4rem 0.5rem;
+  font: inherit;
+  border: 1px solid #b8b2a5;
+  border-radius: 4px;
+}
+
+button {
+  padding: 0.4rem 0.8rem;
+  font: inherit;
+  color: #fff;
+  background: #354f52;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #52796f;
+}
+
+[role='alert'] {
+  margin: 0;
+  color: #b3261e;
+}
