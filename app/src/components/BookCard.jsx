@@ -7,7 +7,6 @@ const BookCard = ({ book }) => (
       {book.author} · {book.year}
     </p>
     
-// extra att vissa om Book läst eller inte
     {book.read && (
       <span className="badge" data-testid="badge-read">
         Läst
