@@ -1,0 +1,21 @@
+
+# Books App
+
+A web application for browsing and managing books.
+
+## Pages
+
+- [Books home](http://localhost:5173/books)
+- [Book details](http://localhost:5173/books/1)
+- [Create a new book](http://localhost:5173/new)
+
+## Main features
+
+- Browse books
+- View individual book details
+- Create a new book
+
+## Technical information
+
+- Frontend: React
+- Development server: Vite
