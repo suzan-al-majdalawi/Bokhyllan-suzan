@@ -1,7 +1,6 @@
 
 import { useState } from 'react';
 import BookCard from './BookCard.jsx';
-import NewBook from './NewBook.jsx';
 import { useBooks } from '../hooks/useBooks.js';
 
 const BookList = () => {
@@ -45,8 +44,6 @@ const BookList = () => {
           />
         ))}
       </section>
-
-      <NewBook onAdd={addBook} />
     </>
   );
 };
