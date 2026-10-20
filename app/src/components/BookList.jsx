@@ -1,46 +1,28 @@
 
 import { useState } from 'react';
-import { books as initialBooks } from '../data/books.js';
 import BookCard from './BookCard.jsx';
 import NewBook from './NewBook.jsx';
+import { useBooks } from '../hooks/useBooks.js';
 
 const BookList = () => {
-  const [books, setBooks] = useState(initialBooks);
+  const { books, loading, error, addBook, toggleRead } = useBooks();
   const [showUnread, setShowUnread] = useState(false);
-
-  const toggleRead = (id) => {
-    setBooks((currentBooks) =>
-      currentBooks.map((book) =>
-        book.id === id
-          ? { ...book, read: !book.read }
-          : book
-      )
-    );
-  };
-
-  const addBook = ({ title, author, year }) => {
-    setBooks((currentBooks) => {
-      const nextId = Math.max(
-        0,
-        ...currentBooks.map((book) => book.id)
-      ) + 1;
-
-      return [
-        ...currentBooks,
-        {
-          id: nextId,
-          title,
-          author,
-          year,
-          read: false,
-        },
-      ];
-    });
-  };
 
   const visibleBooks = showUnread
     ? books.filter((book) => !book.read)
     : books;
+
+  if (loading) {
+    return <p data-testid="loading">Laddar böcker…</p>;
+  }
+
+  if (error) {
+    return (
+      <p data-testid="error">
+        Kunde inte hämta böcker
+      </p>
+    );
+  }
 
   return (
     <>
