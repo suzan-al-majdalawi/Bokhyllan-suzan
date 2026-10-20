@@ -1,7 +1,16 @@
 
+import { Link } from 'react-router';
+
 const BookCard = ({ book, onToggleRead }) => (
   <article className="book-card" data-testid="book-card">
-    <h2 data-testid="book-title">{book.title}</h2>
+    <h2>
+      <Link
+        to={`/books/${book.id}`}
+        data-testid="book-title"
+      >
+        {book.title}
+      </Link>
+    </h2>
 
     <p data-testid="book-meta">
       {book.author} · {book.year ?? 'Okänt år'}
