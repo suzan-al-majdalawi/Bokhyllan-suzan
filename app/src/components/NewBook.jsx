@@ -7,7 +7,7 @@ const NewBook = ({ onAdd }) => {
   const [year, setYear] = useState('');
   const [error, setError] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const trimmedTitle = title.trim();
@@ -23,16 +23,20 @@ const NewBook = ({ onAdd }) => {
       return;
     }
 
-    onAdd({
-      title: trimmedTitle,
-      author: trimmedAuthor,
-      year: trimmedYear ? Number(trimmedYear) : null,
-    });
+    try {
+      await onAdd({
+        title: trimmedTitle,
+        author: trimmedAuthor,
+        year: trimmedYear ? Number(trimmedYear) : null,
+      });
 
-    setTitle('');
-    setAuthor('');
-    setYear('');
-    setError(false);
+      setTitle('');
+      setAuthor('');
+      setYear('');
+      setError(false);
+    } catch {
+      setError(true);
+    }
   };
 
   return (
